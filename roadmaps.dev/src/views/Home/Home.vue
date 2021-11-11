@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="wrapper-home">
     <section class="section-left">
       <h1 class="title">Evolua na carreira de programação.</h1>
       <p class="subtitle">Escolha um roadmap e rumo ao sucesso!</p>

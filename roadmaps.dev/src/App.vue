@@ -61,6 +61,8 @@ $color-light: #fff;
   width: 90vw;
   height: 88px;
   padding: 50px 0px;
+  position: absolute;
+  z-index: 1;
   display: flex;
   background-color: $color-light;
   justify-content: space-between;
@@ -93,6 +95,7 @@ $color-light: #fff;
   border-bottom: 3px solid transparent;
   text-decoration: none;
   margin-left: 30px;
+  line-height: 30px;
 
   &:hover {
     color: $color-primary;
