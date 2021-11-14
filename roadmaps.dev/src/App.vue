@@ -10,7 +10,9 @@
           v-for="navigation in navigations"
           :key="navigation.title"
         >
-          <a class="link" href="">{{ navigation.title }}</a>
+          <router-link class="link" :to="navigation.path">
+            {{ navigation.title }}
+          </router-link>
         </li>
       </ul>
       <span class="icon-menu" @click="mobileMenu = !mobileMenu">
@@ -27,122 +29,14 @@ export default {
 
   data: () => ({
     navigations: [
-      { title: "HOME", url: "" },
-      { title: "ROADMAPS", url: "" },
-      { title: "BLOG", url: "" },
-      { title: "SOBRE", url: "" },
+      { title: "HOME", path: "/" },
+      { title: "ROADMAPS", path: "/roadmaps" },
+      { title: "BLOG", path: "/" },
+      { title: "SOBRE", path: "/" },
     ],
     mobileMenu: false,
   }),
 };
 </script>
 
-<style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
-
-$color-primary: #8a01fe;
-$color-dark: #212121;
-$color-light: #fff;
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Ubuntu", sans-serif;
-}
-
-.wrapper-navbar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.navbar {
-  width: 90vw;
-  height: 88px;
-  padding: 50px 0px;
-  position: absolute;
-  z-index: 1;
-  display: flex;
-  background-color: $color-light;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-row,
-.link {
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.link,
-.link:active,
-.link:visited,
-.link:link {
-  color: $color-dark;
-  font-weight: 600;
-}
-
-.link {
-  border-bottom: 3px solid transparent;
-  text-decoration: none;
-  margin-left: 30px;
-  line-height: 30px;
-
-  &:hover {
-    color: $color-primary;
-    border-bottom: 3px solid $color-primary;
-  }
-}
-
-.icon-menu {
-  position: absolute;
-  top: 67px;
-  right: 20px;
-  cursor: pointer;
-  display: none;
-}
-
-@media only screen and (max-width: 850px) {
-  .icon-menu {
-    display: block;
-  }
-  .navbar {
-    padding: 0;
-    height: auto;
-  }
-
-  .logo {
-    width: 50vmin;
-    position: absolute;
-    top: 30px;
-  }
-
-  .nav-links {
-    margin-top: -900px;
-    flex-direction: column;
-    width: 100%;
-    height: 100vh;
-    justify-content: center;
-    background: #fff;
-    transition: all 0.5s ease;
-  }
-
-  .mobile-menu {
-    margin-top: 0px;
-  }
-
-  .nav-row {
-    height: auto;
-    margin: 30px auto;
-  }
-}
-</style>
+<style lang="scss" src="./App.scss" />
