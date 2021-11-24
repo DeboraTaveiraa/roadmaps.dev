@@ -1,23 +1,11 @@
 <template>
   <div class="wrapper-roadmaps">
-    <v-card
-      class="mx-auto card"
-      max-width="380"
-      v-for="item in data"
-      :key="item.id"
-    >
-      <v-img :src="require(`@/assets/${item.image}`)" height="200px"></v-img>
-
-      <v-card-title class="title"> {{ item.title }} </v-card-title>
-
-      <v-card-subtitle class="subtitle">
-        {{ item.description }}
-      </v-card-subtitle>
-
-      <v-card-actions>
-        <v-btn text color="#FFF" class="btn"> Iniciar </v-btn>
-      </v-card-actions>
-    </v-card>
+    <div v-for="(item, index) in data" :key="index" class="card">
+      <img :src="require(`@/assets/${item.image}`)" alt="" height="250px" />
+      <h1 class="title">{{ item.title }}</h1>
+      <p class="subtitle">{{ item.description }}</p>
+      <button class="btn" @click="goRouter(item.path)">Iniciar</button>
+    </div>
   </div>
 </template>
 
@@ -34,10 +22,15 @@ export default {
       show: false,
     };
   },
+  methods: {
+    goRouter(path) {
+      this.$router.push({ path: `${path}` });
+    },
+  },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .wrapper-roadmaps {
   width: 100%;
   display: flex;
@@ -47,20 +40,50 @@ export default {
 }
 
 .card {
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+  width: 25em;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
   margin-bottom: 20px;
 }
 
 .title {
+  width: 100%;
+  text-align: start;
+  margin-bottom: 5px;
+  font-size: 2em;
   color: #8a01fe;
 }
 
-.btn {
-  background-color: #8a01fe;
+.subtitle {
+  height: 40px;
+  font-size: 1em;
 }
 
-@media (max-width: 768px) {
+.btn {
+  margin-bottom: 10px;
+  background-color: #8a01fe;
+  width: 100px;
+  border-radius: 5px;
+  color: #fff;
+  height: 35px;
+
+  &:hover {
+    background-color: #fff;
+    border: 1px solid #8a01fe;
+    color: #8a01fe;
+  }
+}
+
+@media (max-width: 414px) {
   .wrapper-roadmaps {
     justify-content: center;
+  }
+  .card {
+    width: 18em;
   }
 }
 </style>

@@ -5,7 +5,7 @@
   width: 90vw;
   height: 100vh;
   margin: 0 auto;
-  padding-top: 150px;
+  padding-top: 140px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -13,6 +13,10 @@
 
 .text-header-roadmaps {
   color: #333;
+}
+
+.wrapper-roadmaps {
+  width: 100%;
 }
 
 .card-roadmap {

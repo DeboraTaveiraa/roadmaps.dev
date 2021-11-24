@@ -31,7 +31,6 @@ export default {
     navigations: [
       { title: "HOME", path: "/" },
       { title: "ROADMAPS", path: "/roadmaps" },
-      { title: "BLOG", path: "/" },
       { title: "SOBRE", path: "/" },
     ],
     mobileMenu: false,
