@@ -10,7 +10,7 @@ import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs.vue";
 import BoxContainer from "@/components/BoxContainer/BoxContainer.vue";
 import Roadmap from "@/components/Roadmap/Roadmap.vue";
 
-import { BREADCRUMBS, ROADMAP_FRONTEND } from "./constants";
+import { BREADCRUMBS, ROADMAP_BACKEND } from "./constants";
 
 export default {
   components: {
@@ -21,10 +21,10 @@ export default {
   data() {
     return {
       breadCrumbs: BREADCRUMBS,
-      roadmap: ROADMAP_FRONTEND,
+      roadmap: ROADMAP_BACKEND,
     };
   },
 };
 </script>
 
-<style lang="scss" src="./FrontEnd.scss" />
+<style lang="scss" src="./BackEnd.scss" />

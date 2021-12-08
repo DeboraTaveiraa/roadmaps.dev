@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-breadcrumbs :items="items">
+    <v-breadcrumbs :items="items" class="container-breadcrumbs">
       <template v-slot:divider>
         <v-icon>mdi-chevron-right</v-icon>
       </template>
@@ -19,4 +19,8 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.container-breadcrumbs {
+  padding: 18px 0 !important;
+}
+</style>

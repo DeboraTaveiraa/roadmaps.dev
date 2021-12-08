@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper-navbar">
     <nav class="navbar">
-      <a href="" class="logo">
+      <a href="" class="logo" @click="goToHome()">
         <img alt="Logo" src="./assets/logo.svg" width="200" />
       </a>
       <ul class="nav-links" :class="{ 'mobile-menu': mobileMenu }">
@@ -20,11 +20,16 @@
       </span>
     </nav>
     <router-view />
+    <Footer />
   </div>
 </template>
 
 <script>
+import Footer from "@/components/Footer/Footer.vue";
 export default {
+  components: {
+    Footer,
+  },
   name: "App",
 
   data: () => ({
@@ -35,6 +40,11 @@ export default {
     ],
     mobileMenu: false,
   }),
+  methods: {
+    goToHome() {
+      this.$router.push({ name: "Home" });
+    },
+  },
 };
 </script>
 

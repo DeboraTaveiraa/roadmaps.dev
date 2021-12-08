@@ -5,8 +5,12 @@
       <p class="subtitle">Escolha um roadmap e rumo ao sucesso!</p>
 
       <div class="wrapper-btn">
-        <button class="btn-left">Descobrir minha área</button>
-        <button class="btn-right">Escolher um roadmap</button>
+        <button class="btn-left" @click="goTo('Questions')">
+          Descobrir minha área
+        </button>
+        <button class="btn-right" @click="goTo('Roadmaps')">
+          Escolher um roadmap
+        </button>
       </div>
     </section>
     <section class="section-right">
@@ -19,6 +23,11 @@
 export default {
   data() {
     return {};
+  },
+  methods: {
+    goTo(name) {
+      this.$router.push({ name: name });
+    },
   },
 };
 </script>

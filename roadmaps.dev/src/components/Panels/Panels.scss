@@ -1,0 +1,34 @@
+.panels-header {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ex-painel-header {
+  background-color: #8a01fe;
+  color: #FFF;
+  justify-content: space-between;
+}
+
+.expansion-panel .ex-painel-header .v-icon {
+  color: #FFF !important;
+}
+
+.list-content {
+  padding: 2rem 0 2rem 2rem;
+}
+
+.item-list {
+  list-style:circle;
+  padding: 10px 0;
+}
+
+.item-list::marker {
+  color: #8a01fe;
+}
+
+.item-url {
+  text-decoration: none;
+  color: #9c2bff;
+}
