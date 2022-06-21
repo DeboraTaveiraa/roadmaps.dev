@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
 
 .wrapper-home {
-  
   width: 90vw;
   max-width: 1200px;
   display: flex;
@@ -41,11 +40,19 @@
 .btn-left {
   background-color: #8a01fe;
   color: #fff;
+
+  &:hover {
+    box-shadow: 5px 3px #333;
+  }
 }
 
 .btn-right {
   border: 1px solid #8a01fe;
   color: #8a01fe;
+
+  &:hover {
+    box-shadow: 5px 3px #8a01fe;
+  }
 }
 
 /** SECTION RIGHT **/
