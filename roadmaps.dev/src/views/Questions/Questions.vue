@@ -135,16 +135,6 @@ export default {
           this.roadmapRecommended = "Mobile";
           break;
       }
-
-      console.log(
-        "🚀 ~ file: Questions.vue ~ line 131 ~ verifyRoadmapRecommended ~ this.roadmapRecommended",
-        this.roadmapRecommended
-      );
-      this.showQuestion = null;
-      console.log(
-        "🚀 ~ file: Questions.vue ~ line 139 ~ verifyRoadmapRecommended ~ this.showQuestion",
-        this.showQuestion
-      );
     },
     goToRoadmap(name) {
       this.$router.push({ name: name });
