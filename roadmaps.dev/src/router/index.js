@@ -6,6 +6,7 @@ import Roadmaps from "@/views/Roadmaps/Roadmaps.vue";
 import FrontEnd from "@/views/FrontEnd/FrontEnd.vue";
 import BackEnd from "@/views/BackEnd/BackEnd.vue";
 import Mobile from "@/views/Mobile/Mobile.vue";
+import About from "@/views/About/About.vue";
 
 Vue.use(VueRouter);
 
@@ -16,7 +17,7 @@ const routes = [
     component: Home,
   },
   {
-    path: "/questions",
+    path: "/questionario",
     name: "Questions",
     component: Questions,
   },
@@ -39,6 +40,11 @@ const routes = [
     path: "/mobile",
     name: "Mobile",
     component: Mobile,
+  },
+  {
+    path: "/sobre",
+    name: "About",
+    component: About,
   },
 ];
 
