@@ -32,6 +32,4 @@ export default {
 };
 </script>
 
-<style>
-@import "Home.scss";
-</style>
+<style lang="scss" src="./Home.scss" />
