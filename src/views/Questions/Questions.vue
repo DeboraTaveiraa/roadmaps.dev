@@ -12,15 +12,15 @@
     </section>
 
     <section class="wrapper-questions">
-      <template v-if="showQuestion">
+      <template v-if="currentQuestion && !roadmapRecommended.length">
         <p class="title-question">
-          {{ showQuestion.question }}
+          {{ currentQuestion.question }}
         </p>
 
-        <v-radio-group v-model="radios">
+        <v-radio-group v-model="selectedQuestionOption">
           <v-radio
             class="options"
-            v-for="option in showQuestion.options"
+            v-for="option in currentQuestion.options"
             :key="option.id_option"
             :label="option.text_option"
             :value="option.id_option"
@@ -29,8 +29,8 @@
         </v-radio-group>
 
         <button
-          :disabled="!radios"
-          @click="nextQuestion(showQuestion.id_question)"
+          :disabled="!selectedQuestionOption"
+          @click="nextQuestion(currentQuestion.id_question)"
           class="btn btn-next"
         >
           Prosseguir
@@ -66,42 +66,35 @@ export default {
     return {
       breadCrumbs: BREADCRUMBS,
       questions: QUESTIONS,
-      showQuestion: {},
-      responseQuestions: [],
-      radios: 0,
+      currentQuestion: QUESTIONS[0],
+      answerQuestions: [],
+      selectedQuestionOption: 0,
       roadmapRecommended: "",
+      lastQuestionId: QUESTIONS[QUESTIONS.length - 1],
     };
   },
-  mounted() {
-    this.setShowQuestion();
-  },
   methods: {
-    setShowQuestion() {
-      this.showQuestion = this.questions.find(
-        (question) => question.id_question === 1
-      );
-    },
-    nextQuestion(id) {
-      this.responseQuestions.push((id, this.radios));
+    nextQuestion(idQuestion) {
+      this.answerQuestions.push(this.selectedQuestionOption);
 
-      this.radios = 0;
+      this.selectedQuestionOption = 0;
 
-      if (id !== 3) {
-        this.showQuestion = this.questions.find(
-          (question) => question.id_question === id + 1
+      if (idQuestion !== this.lastQuestionId.id_question) {
+        this.currentQuestion = this.questions.find(
+          (question) => question.id_question === idQuestion + 1
         );
       } else {
-        this.verifyRoadmapRecommended();
+        this.calculateAnswers();
       }
     },
-    verifyRoadmapRecommended() {
+    calculateAnswers() {
       let frontend = 0;
       let backend = 0;
       let full = 0;
-      let quantityTotal = [];
+      let quantityAnswerByArea = [];
 
-      this.responseQuestions.forEach((i) => {
-        switch (i) {
+      this.answerQuestions.forEach((answer) => {
+        switch (answer) {
           case 1:
             frontend += 1;
             break;
@@ -116,11 +109,15 @@ export default {
         }
       });
 
-      quantityTotal = [frontend, backend, full];
-      let maxValueResponse = Math.max(...quantityTotal);
+      quantityAnswerByArea = [frontend, backend, full];
+
+      this.getRoadmapRecommended(quantityAnswerByArea);
+    },
+    getRoadmapRecommended(quantityAnswerByArea) {
+      let maxValueResponse = Math.max(...quantityAnswerByArea);
       let numberRoadmap = null;
 
-      quantityTotal.forEach((value, area) => {
+      quantityAnswerByArea.forEach((value, area) => {
         if (value === maxValueResponse) numberRoadmap = area;
       });
 

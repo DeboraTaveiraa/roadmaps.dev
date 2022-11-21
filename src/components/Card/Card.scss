@@ -15,7 +15,7 @@
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  padding-left: 15px;
+  padding: 5px 15px 0 15px;
   margin-bottom: 20px;
 }
 
@@ -37,11 +37,11 @@
   background-color: #8a01fe;
   width: 100px;
   border-radius: 5px;
-  color: #fff;  
+  color: #fff;
+  border: 1px solid #8a01fe;
 
   &:hover {
     background-color: #fff;
-    border: 1px solid #8a01fe;
     color: #8a01fe;
   }
 }

@@ -1,0 +1,35 @@
+@import '../../App.scss';
+
+* {
+  color: $color-dark;
+  text-align: justify;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+.box-container {
+  gap: 40px;
+}
+
+.wrapper-colaboration {
+  border: 1px solid #8a01fe;
+  border-radius: 5px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  h1 {
+    color: #8a01fe;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      color: #8a01fe;
+    }
+  }
+}
